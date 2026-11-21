@@ -6,7 +6,7 @@ services:
     environment:
       - USER_UID=1000
       - USER_GID=1000
-      - FORGEJO__server__ROOT_URL=https://home-lab.YOURTAILNET.ts.net/
+      - FORGEJO__server__ROOT_URL=https://home-lab.tailc5535f.ts.net/
       - FORGEJO__service__DISABLE_REGISTRATION=true
     volumes:
       - ./data:/data

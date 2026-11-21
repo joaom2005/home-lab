@@ -27,7 +27,7 @@ sync-joaom05.duckdns.org {
         reverse_proxy syncyomi:8282
     }
     handle {
-        respond abort
+        abort
     }
-    -Server
+    header -Server
 }

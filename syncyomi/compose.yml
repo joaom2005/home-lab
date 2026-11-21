@@ -1,7 +1,7 @@
 services:
   syncyomi:
     container_name: syncyomi
-    image: ghcr.io/syncyomi/syncyomi:latest
+    image: ghcr.io/syncyomi/syncyomi:v1.7.4
     restart: unless-stopped
     environment:
       - TZ=Europe/Lisbon
