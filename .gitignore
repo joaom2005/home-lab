@@ -1,0 +1,44 @@
+# 1. Ignore everything by default
+*
+
+# 2. ...but let git look inside directories, so the rules below can reach files
+!*/
+
+# 3. Allow only these files
+!.gitignore
+!README.md
+!LICENSE
+!**/README.md
+!**/compose.yml
+!**/compose.yaml
+!**/docker-compose.yml
+!**/docker-compose.yaml
+!**/Caddyfile
+!**/.env.example
+!scripts/**
+!docs/**
+!.github/**
+
+# 4. Never go inside runtime data (the later rules override the allow list)
+**/data/
+**/config/
+**/db/
+**/database/
+**/repositories/
+**/volumes/
+**/logs/
+
+# 5. Belt and braces: secrets and databases, even inside allowed folders
+.env
+**/.env
+*.key
+*.pem
+*.crt
+*.p12
+id_*
+*restic-pass*
+*.db
+*.sqlite
+*.sqlite3
+*.db-wal
+*.db-shm

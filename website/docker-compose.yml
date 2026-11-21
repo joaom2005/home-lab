@@ -1,0 +1,12 @@
+services:
+  website:
+    container_name: website
+    image: ghcr.io/joaom2005/portfolio:latest
+    restart: unless-stopped
+    volumes:
+      - ./files:/usr/share/caddy/files:ro
+    networks: [web]
+
+networks:
+  web:
+    external: true

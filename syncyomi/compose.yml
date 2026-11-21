@@ -1,0 +1,19 @@
+services:
+  syncyomi:
+    container_name: syncyomi
+    image: ghcr.io/syncyomi/syncyomi:latest
+    restart: unless-stopped
+    environment:
+      - TZ=Europe/Lisbon
+    user: 1000:1000
+    volumes:
+      - ./config:/config
+    ports:
+      - "100.123.2.107:8282:8282"
+    mem_limit: 512m
+    networks:
+      - web
+
+networks:
+  web:
+    external: true

@@ -1,0 +1,7 @@
+services:
+  duckdns:
+    image: lscr.io/linuxserver/duckdns:aad9dc1f-ls96
+    restart: unless-stopped
+    environment:
+      - SUBDOMAINS=joaom05,sync-joaom05
+      - TOKEN=${DUCKDNS_TOKEN}

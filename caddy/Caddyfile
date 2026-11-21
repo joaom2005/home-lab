@@ -1,0 +1,33 @@
+joaom05.duckdns.org {
+    header {
+        Strict-Transport-Security "max-age=31536000; includeSubDomains"
+        X-Content-Type-Options "nosniff"
+        X-Frame-Options "DENY"
+        Referrer-Policy "strict-origin-when-cross-origin"
+        Permissions-Policy "camera=(), microphone=(), geolocation=()"
+        -Server
+    }
+    reverse_proxy website:80
+}
+
+sync-joaom05.duckdns.org {
+    @content {
+        path /api/sync/content
+        method GET PUT
+    }
+    @event {
+        path /api/sync/event
+        method POST
+    }
+
+    handle @content {
+        reverse_proxy syncyomi:8282
+    }
+    handle @event {
+        reverse_proxy syncyomi:8282
+    }
+    handle {
+        respond abort
+    }
+    -Server
+}
